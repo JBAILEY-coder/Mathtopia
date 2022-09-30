@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1.0">
+	<title>Amissa Sanitate - MathTopia</title>
+	<link rel="icon" href="Assets/multi.png" type="image/x-icon">
+	<link rel="stylesheet" href="style1.css">
+	<script src="functions.js"></script>
+
+</head>
+
+<body>
+
+	<nav class="header">
+		<h1 style="color:black; font-family: Orang; font-size:40px;">
+			MathTopia
+		</h1>
+	</nav>
+	<div class="box">
+		<div class="content2">
+			<h2>
+				<br>
+        A mathematics center for everyone<br>
+        Join Mathtopia to solve multiplication questions
+      </h2>
+    </div>
+  </div>
+  <br><br>
+  <div class="content inverted"> 
+  </div>
+  <div class="content4" id="content" style="font-family: Shiny-Flakes;">
+    <form id="formid" autocomplete="off" name="register" onsubmit="Register(event);"> 
+      <h3 style="font-family: Candy-Cane; font-size: 24px;"> &emsp; &emsp; &emsp; &emsp;Please Fill out the form below to get started:</h3>
+      &emsp; &emsp; &emsp; &emsp;<label for="firstname" style="font-size: 24px;">First Name: <sup>*</sup></label><br>
+      &emsp; &emsp; &emsp; &emsp;<input autocomplete="off" type="text" id="firstname" minlength="4" size="50"><br> <!--Min length doesn't work-->
+      &emsp; &emsp; &emsp; &emsp;<label id="spacef"></label><br>
+      &emsp; &emsp; &emsp; &emsp;<label for="lastname" style="font-size: 24px;">Last Name: <sup>*</sup></label><br>
+      &emsp; &emsp; &emsp; &emsp;<input autocomplete="off" type="text" id="lastname" minlength="4"  size="50" ><br>
+      &emsp; &emsp; &emsp; &emsp;<label id="spacel"></label><br>
+      &emsp; &emsp; &emsp; &emsp;<label for="dob" style="font-size: 24px;">Date Of Birth:  <sup>*</sup></label><br>
+      &emsp; &emsp; &emsp; &emsp;<input type="date" id="dob" style="width:67%"><br>
+      &emsp; &emsp; &emsp; &emsp;<label id="age"></label><br>
+      &emsp; &emsp; &emsp; &emsp;<label style="font-size: 24px;">Gender:<sup>*</sup><br> </label>
+      &emsp; &emsp;&emsp;&emsp;<input name="gender" type="radio" id="F">
+      <label id="female" style="font-size: 24px;">Female</label>
+      &emsp; &emsp; &emsp; &emsp; &emsp;<input name="gender" type="radio" id="M">
+      <label id="male" style="font-size: 24px;">Male</label><br>
+      &emsp; &emsp; &emsp; &emsp;<label id="spaceg"></label><br>
+      &emsp; &emsp; &emsp; &emsp; <label for="email" style="font-size: 24px;">Email Address:  <sup>*</sup></label><br>
+      &emsp; &emsp; &emsp; &emsp; <input autocomplete="off" id="email" placeholder="...@gmail.com" pattern=".*@gmail.com$" title="must be gmail.com" type="email" size="50"><br>
+      &emsp; &emsp; &emsp; &emsp;<label id="space"></label><br><br>
+      <!-- Task 3-->
+      &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;<button style="font-family:Shiny-Flakes; font-size: 24px;" type="submit" id="submit" onclick="">Register</button>
+    </form>
+  </div>
+  <!--Play area goes here-->
+  <div class="content6 hidden" id="content2">
+    <h1 style="font-family:Shiny-Flakes; font-size: 34px; text-align:center">Let's Play Mathopia</h1>
+    <form id="formid2" name="play" method="post">
+    <!--Task 3 as well-->
+      <br>&emsp; &emsp;&emsp; &emsp; &emsp;<button type="submit" id="start" onclick="playarea(); return false" style="font-family:Shiny-Flakes; font-size: 24px;">Start</button>
+      &emsp; &emsp;&emsp; &emsp; &emsp;<button type="submit" id="end" onclick="Endgame(); return false" style="font-family:Shiny-Flakes; font-size: 24px;">End</button>
+    </form>
+  </div>
+  <div class="content7 hidden" id="content3">
+    <form name="play" id="form3">
+      <label id="playarea"></label><br><br> <!--Turn into a text area where they can't edit-->
+        &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp;<input type="number" placeholder="Enter answer here" id="answer">
+      <label id="val"></label><br>
+      <br><button type="submit" id="accept" onclick="CheckAnswer(); return false" style="font-family:Shiny-Flakes; font-size: 24px;">Accept</button>
+      <button type="submit" id="next" onclick="playgame(); return false" style="font-family:Shiny-Flakes; font-size: 24px;">Next</button>
+      <button type="submit" id="check" onclick="findPercentageScore(); return false" style="font-family:Shiny-Flakes; font-size: 24px;">Check Score</button>
+      <!--<input type="text" id="playarea" size="50" disabled>-->
+    </form>
+  </div>
+  <div class="content8 hidden" id="content4">
+    <form id ="form4">
+      <br><br><br><br><br>
+      <textarea disabled style="width:600px;height:150px;" id="showpercentage"></textarea><br> 
+      <br><br>
+      <textarea disabled id="showallplayers" rows="4" cols="65"></textarea>
+    </form>
+  </div>
+  <!--Play area ends here-->
+  <div class="content3">
+    <img src="Assets/kids.png" alt="Kids" width="700">
+  </div>
+  <div class="content3a">
+    <img src="Assets/smart.png" alt="Smart" width="700">
+  </div>
+  <hr>
+  <div class="charts border" id="showcharts">
+    <h3>&nbsp; Number of Males and Females</h3>
+    <table>
+      <tr>
+        <th id="male2" style="font-family:Shiny-Flakes; font-size: 24px;">Male</th>
+        <td> 
+          <img src="Assets/Solid_green.png" id="male_count" height="40" alt="Bar" width="1">
+        </td>
+      </tr>
+      <tr>
+        <th id="female2" style="font-family:Shiny-Flakes; font-size: 24px;">Female</th>
+        <td> 
+          <img src="Assets/solid_red.png" id="female_count" height="40" alt="Bar" width="1">
+        </td>
+      </tr>
+    </table>
+    <div class="fix border">
+      <h3>&emsp;&emsp;&emsp; Percentage Score</h3>
+      <table>
+        <tr>
+          <th id="under_50">Less than 50</th>
+          <td> 
+            <img src="Assets/Solid_green.png" id="lessthan50" height="40" alt="Bar" width="1">
+          </td>
+        </tr>
+        <tr>
+          <th id="50-59">50-59</th>
+          <td> 
+            <img src="Assets/solid_red.png" id="between50n59" height="40" alt="Bar" width="1">
+          </td>
+        </tr>
+        <tr>
+          <th id="60-69">60-69</th>
+          <td> 
+            <img src="Assets/Solid_green.png" id="between60n69" height="40" alt="Bar" width="1">
+          </td>
+        </tr>
+        <tr>
+          <th id="70-79">70-79</th>
+          <td> 
+            <img src="Assets/solid_red.png" id="between70n79" height="40" alt="Bar" width="1">
+          </td>
+        </tr>
+        <tr>
+          <th id="80-89">80-89</th>
+          <td> 
+            <img src="Assets/Solid_green.png" id="between80n89" height="40" alt="Bar" width="1">
+          </td>
+        </tr>
+        <tr>
+          <th id="90-99">90-99</th>
+          <td> 
+            <img src="Assets/solid_red.png" id="between90n99" height="40" alt="Bar" width="1">
+          </td>
+        </tr>
+        <tr>
+          <th id="100">100</th>
+          <td> 
+            <img src="Assets/Solid_green.png" id="at100" height="40" alt="Bar" width="1">
+          </td>
+        </tr>
+      </table>
+     </div>
+    </div>
+  </body>
+</html>
